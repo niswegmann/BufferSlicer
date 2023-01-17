@@ -26,15 +26,15 @@ aligned and have a size that is a multiple of 16 samples (corresponding to
 1. Create a `BufferSlicer` instance with 2 input, 2 output channels, and a block
 size of 16:
 
-    BufferSlicer<16, 2, 2> buffer_slicer;
+        BufferSlicer<16, 2, 2> buffer_slicer;
 
 2. Allocate your aligned buffers:
     
-    float * const input_buffers [2] =
-    {
-        aligned_alloc(64, max_aligned_sample_count * sizeof(float)),
-        aligned_alloc(64, max_aligned_sample_count * sizeof(float))
-    };
+        float * const input_buffers [2] =
+        {
+            aligned_alloc(64, max_aligned_sample_count * sizeof(float)),
+            aligned_alloc(64, max_aligned_sample_count * sizeof(float))
+        };
 
 3. Make sure that `max_aligned_sample_count` is a multiple of `64 / sizeof(float)`
 greater than or equal to `max_block_count * block_size`, where `max_block_count`
