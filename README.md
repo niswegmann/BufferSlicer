@@ -30,7 +30,13 @@ size of 16:
 
 2. Allocate your aligned buffers:
     
-        float * const input_buffers [2] =
+        float * const aligned_input_buffers [2] =
+        {
+            aligned_alloc(64, max_aligned_sample_count * sizeof(float)),
+            aligned_alloc(64, max_aligned_sample_count * sizeof(float))
+        };
+        
+        float * const aligned_output_buffers [2] =
         {
             aligned_alloc(64, max_aligned_sample_count * sizeof(float)),
             aligned_alloc(64, max_aligned_sample_count * sizeof(float))
@@ -43,7 +49,7 @@ and `max_unaligned_sample_count` is the maximum sample count reported by the
 hardware.
 
 In your callback, from the hardware, use the `BufferSlicer` to slice the
-incoming buffers as follows:
+incoming buffers (`unaligned_input_buffers` and `unaligned_output_buffers`) as follows:
 
     ...
     
@@ -68,4 +74,6 @@ incoming buffers as follows:
 
 ## License
 
-*BufferSlicer* uses the CC0 1.0 Universal license (see the [LICENSE](https://github.com/niswegmann/BufferSlicer/blob/main/LICENSE) file). Basically you can do whatever you want to do with the code.
+*BufferSlicer* uses the CC0 1.0 Universal license (see the
+[LICENSE](https://github.com/niswegmann/BufferSlicer/blob/main/LICENSE) file).
+Basically you can do whatever you want to do with the code.
