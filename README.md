@@ -74,6 +74,6 @@ incoming buffers (`unaligned_input_buffers` and `unaligned_output_buffers`) as f
 
 ## License
 
-*BufferSlicer* uses the CC0 1.0 Universal license (see the
+*Buffer Slicer* uses the CC0 1.0 Universal license (see the
 [LICENSE](https://github.com/niswegmann/BufferSlicer/blob/main/LICENSE) file).
 Basically you can do whatever you want to do with the code.
